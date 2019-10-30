@@ -2,6 +2,7 @@ package com.example.simpleparadox.listycity;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -31,6 +32,17 @@ public class CityList {
         List<City> list = cities;
         Collections.sort(list);
         return list;
+    }
+    public List<City> getCityList() {
+        return this.cities;
+    }
+    public void sortCityByProvince() {
+        Collections.sort(cities, new Comparator<City>() {
+            @Override
+            public int compare(City city, City t1) {
+                return city.getProvinceName().compareTo(t1.getProvinceName());
+            }
+        });
     }
 
     /**
