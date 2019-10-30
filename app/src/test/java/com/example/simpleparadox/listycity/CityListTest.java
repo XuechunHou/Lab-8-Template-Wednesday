@@ -93,4 +93,15 @@ class CityListTest {
 
         assertEquals(1, cityList.countCities());
     }
+    @Test
+    void testSortCityByProvince() {
+        CityList cityList = mockCityList();
+        cityList.add(new City("Regina", "Saskatchewan"));
+        cityList.add(new City("Toronto", "Ontario"));
+        assertEquals(3, cityList.countCities());
+        cityList.sortCityByProvince();
+        assertEquals(cityList.getCities().get(0).getProvinceName(), "Alberta");
+        assertEquals(cityList.getCities().get(1).getProvinceName(), "Ontario");
+        assertEquals(cityList.getCities().get(0).getProvinceName(), "Saskatchewan");
+    }
 }
